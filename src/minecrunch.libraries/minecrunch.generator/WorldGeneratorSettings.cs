@@ -215,16 +215,16 @@ namespace minecrunch.generator
         public WorldGenerationSettings()
         {
             Seed = 33;
-            MinElev = 0;
-            MaxElev = 164;
+            MinElev = -1;
+            MaxElev = 1;
             ContinentFrequency = 0.6;
 
-            ContinentHeightScale = 8 / 512.0;
+            ContinentHeightScale = 0;
             TerrainOffset = 0.25;
 
-            RiverDepth = 14 / 256.0;
-            SeaLevel = 18 / 256.0;
-            ShelfLevel = 10 / 256.0;
+            RiverDepth = 0;
+            SeaLevel = 0;
+            ShelfLevel = 0;
 
             MountainsAmount = 0.52;
             HillsAmount = 0.85;

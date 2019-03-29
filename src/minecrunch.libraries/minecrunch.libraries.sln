@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minecrunch.models", "minecr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minecrunch.generator", "minecrunch.generator\minecrunch.generator.csproj", "{697864EB-555A-49A8-ADE1-B541C3B582CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "minecrunch.generator.tests", "minecrunch.generator.tests\minecrunch.generator.tests.csproj", "{F3AEE766-513D-460F-BA3A-9514808ED422}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{697864EB-555A-49A8-ADE1-B541C3B582CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{697864EB-555A-49A8-ADE1-B541C3B582CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{697864EB-555A-49A8-ADE1-B541C3B582CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3AEE766-513D-460F-BA3A-9514808ED422}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3AEE766-513D-460F-BA3A-9514808ED422}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3AEE766-513D-460F-BA3A-9514808ED422}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3AEE766-513D-460F-BA3A-9514808ED422}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

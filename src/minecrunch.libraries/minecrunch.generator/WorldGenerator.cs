@@ -28,7 +28,7 @@ namespace minecrunch.generator
 
         #region Module Groups
 
-        Module CreateContinentDefinition()
+        public Module CreateContinentDefinition()
         {
             // Roughly defines the positions and base elevations of the planet's continents.
             //
@@ -144,7 +144,7 @@ namespace minecrunch.generator
                 // remain unaffected.
                 Source0 = new Select
                 {
-                    EdgeFalloff = 0.0625,
+                    EdgeFalloff = 0.1625,
                     LowerBound = Settings.SeaLevel - 0.0375,
                     UpperBound = Settings.SeaLevel + 1000.0375,
                     Control = baseContinent,
@@ -188,8 +188,7 @@ namespace minecrunch.generator
             return continentDefinition;
         }
 
-
-        Module CreateTerrainTypeDefinition(Module continentDefinition)
+        public Module CreateTerrainTypeDefinition(Module continentDefinition)
         {
             // Defines the positions of the terrain types on the planet.
             //
@@ -240,7 +239,7 @@ namespace minecrunch.generator
             return terrainTypeDefinition;
         }
 
-        Module CreateMountainousTerrain()
+        public Module CreateMountainousTerrain()
         {
             // This subgroup generates the base-mountain elevations.  Other subgroups
             // will add the ridges and low areas to the base elevations.
@@ -325,7 +324,7 @@ namespace minecrunch.generator
                                 Source0 = new RidgedMulti
                                 {
                                     Seed = Settings.Seed + 31,
-                                    Frequency = 6,
+                                    Frequency = 2,
                                     Lacunarity = Settings.MountainLacunarity,
                                     OctaveCount = 1,
                                     Quality = NoiseQuality.Best,
@@ -506,7 +505,7 @@ namespace minecrunch.generator
             return mountainousTerrain;
         }
 
-        Module CreateHillyTerrain()
+        public Module CreateHillyTerrain()
         {
             // Generates the hilly terrain.
             //
@@ -621,7 +620,7 @@ namespace minecrunch.generator
             return hillyTerrain;
         }
 
-        Module CreatePlainsTerrain()
+        public Module CreatePlainsTerrain()
         {
             // Generates the plains terrain.
             //
@@ -693,7 +692,7 @@ namespace minecrunch.generator
             return plainsTerrain;
         }
 
-        Module CreateBadlandsTerrain()
+        public Module CreateBadlandsTerrain()
         {
             // Generates the sandy terrain for the badlands.
             //
@@ -872,7 +871,7 @@ namespace minecrunch.generator
             return badlandsTerrain;
         }
 
-        Module CreateRiverPositions()
+        public Module CreateRiverPositions()
         {
             // Generates the river positions.
             //
@@ -960,7 +959,7 @@ namespace minecrunch.generator
             return riverPositions;
         }
 
-        Module CreateScaledMountainousTerrain(Module mountainousTerrain)
+        public Module CreateScaledMountainousTerrain(Module mountainousTerrain)
         {
             // Scales the output value from the mountainous-terrain group
             // so that it can be added to the elevation defined by the continent-
@@ -1032,7 +1031,7 @@ namespace minecrunch.generator
             return scaledMountainousTerrain;
         }
 
-        Module CreateScaledHillyTerrain(Module hillyTerrain)
+        public Module CreateScaledHillyTerrain(Module hillyTerrain)
         {
             // Scales the output value from the hilly-terrain group so
             // that it can be added to the elevation defined by the continent-
@@ -1106,7 +1105,7 @@ namespace minecrunch.generator
             return scaledHillyTerrain;
         }
 
-        Module CreateScaledPlainsTerrain(Module plainsTerrain)
+        public Module CreateScaledPlainsTerrain(Module plainsTerrain)
         {
             // Scales the output value from the plains-terrain group so
             // that it can be added to the elevations defined by the continent-
@@ -1140,7 +1139,7 @@ namespace minecrunch.generator
             return scaledPlainsTerrain;
         }
 
-        Module CreateScaledBadlandsTerrain(Module badlandsTerrain)
+        public Module CreateScaledBadlandsTerrain(Module badlandsTerrain)
         {
             // Scales the output value from the badlands-terrain group so
             // that it can be added to the elevations defined by the continent-
@@ -1174,7 +1173,7 @@ namespace minecrunch.generator
             return scaledBadlandsTerrain;
         }
 
-        Module CreateFinalPlanet(Module continentDefinition, Module terrainTypeDefinition,
+        public Module CreateFinalPlanet(Module continentDefinition, Module terrainTypeDefinition,
             Module scaledPlainsTerrain, Module scaledHillyTerrain, Module scaledMountainousTerrain,
             Module scaledBadlandsTerrain, Module riverPositions)
         {
@@ -1264,7 +1263,7 @@ namespace minecrunch.generator
                 {
                     LowerBound = Settings.ShelfLevel - 1000,
                     UpperBound = Settings.ShelfLevel,
-                    EdgeFalloff = 0.03125,
+                    EdgeFalloff = 0.18125,
                     // [Base-scaled-continent-elevations module]: This scale/bias module
                     // scales the output value from the continent-definition group so that it
                     // is measured in planetary elevation units 
@@ -1476,7 +1475,7 @@ namespace minecrunch.generator
                 {
                     LowerBound = Settings.SeaLevel,
                     UpperBound = Settings.ContinentHeightScale + Settings.SeaLevel,
-                    EdgeFalloff = Settings.ContinentHeightScale = Settings.SeaLevel,
+                    EdgeFalloff = 0.15,
                     Source0 = continentsWithBadlands,
                     // [Add-rivers-to-continents module]: This addition module adds the
                     // rivers to the continents-with-badlands subgroup.  Because the scaled-

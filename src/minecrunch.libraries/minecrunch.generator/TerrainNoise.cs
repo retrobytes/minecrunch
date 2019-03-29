@@ -10,7 +10,7 @@ namespace minecrunch.generator
     public class TerrainNoise
     {
         readonly WorldGenerator worldGenerator;
-        readonly WorldGeneratorSettings worldGenSettings;
+        readonly WorldGenerationSettings worldGenSettings;
         readonly Module worldGenModule;
         
         const double WORLD_HORIZONTAL_STRETCH = 1 / 256;
@@ -30,9 +30,9 @@ namespace minecrunch.generator
         /// </summary>
         private TerrainNoise()
         {
-            worldGenSettings = new WorldGeneratorSettings();
+            worldGenSettings = new WorldGenerationSettings();
             worldGenerator = new WorldGenerator(worldGenSettings);
-            worldGenModule = worldGenerator.CreatePlanetModule();
+            worldGenModule = worldGenerator.CreateModule();
         }
 
         public double Terrain(double x, double z)
